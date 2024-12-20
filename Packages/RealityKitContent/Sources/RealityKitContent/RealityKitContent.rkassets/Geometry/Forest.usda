@@ -1,0 +1,1177 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (445.0.0.0.2)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root" (
+    references = None
+)
+{
+    float3 xformOp:scale = (1, 1, 1)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def Xform "Group" (
+        active = true
+        references = None
+    )
+    {
+        reorder nameChildren = ["Tree", "Tree_1", "Tree_2", "Tree_3", "Tree_4", "Tree_5", "Tree_6", "Tree_7", "Cylinder"]
+        float3 xformOp:scale = (0.65, 0.65, 0.65)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Xform "Tree" (
+            active = true
+            references = None
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.75, 0.75, 0.75)
+            float3 xformOp:translate = (-0.035942785, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Cylinder "Cylinder" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.07
+                rel material:binding = </Root/Group/Tree/Cylinder/DefaultMaterial>
+                double radius = 0.005
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0.034817044, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial" (
+                    references = None
+                )
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    token outputs:surface.connect = </Root/Group/Tree/Cylinder/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (0.34771544, 0.17646722, 0.12778746) (
+                            colorSpace = "srgb_displayp3"
+                        )
+                        float inputs:occlusion = 0
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+            }
+
+            def Cone "Cone" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0.0651885, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Cone "Cone_1" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.7, 0.7, 0.7)
+                float3 xformOp:translate = (-1.1641532e-9, 0.089471795, 2.3283064e-9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Cone "Cone_2" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.5, 0.5, 0.5)
+                float3 xformOp:translate = (-1.1641532e-9, 0.10941983, 2.3283064e-9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Material "BushMaterial" (
+                references = None
+            )
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Group/Tree/BushMaterial/UsdPreviewSurface.outputs:surface>
+
+                def Shader "UsdPreviewSurface"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.23313752, 0.4879305, 0.27419248) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:occlusion = 0
+                    token outputs:surface
+                }
+            }
+
+            def RealityKitComponent "GroundingShadow"
+            {
+                bool enableIBLShadow = 1
+                bool enableMeshShadow = 1
+                uniform token info:id = "RealityKit.GroundingShadow"
+            }
+        }
+
+        def Xform "Tree_1" (
+            active = true
+            references = None
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1.1, 1.1, 1.1)
+            float3 xformOp:translate = (0.03594, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Cylinder "Cylinder" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.07
+                rel material:binding = </Root/Group/Tree_1/Cylinder/DefaultMaterial>
+                double radius = 0.005
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0.034817044, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial" (
+                    references = None
+                )
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    token outputs:surface.connect = </Root/Group/Tree/Cylinder/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (0.34771544, 0.17646722, 0.12778746) (
+                            colorSpace = "srgb_displayp3"
+                        )
+                        float inputs:occlusion = 0
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+
+                def RealityKitComponent "GroundingShadow"
+                {
+                    bool enableIBLShadow = 1
+                    bool enableMeshShadow = 1
+                    uniform token info:id = "RealityKit.GroundingShadow"
+                }
+            }
+
+            def Cone "Cone" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_1/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0.0651885, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def RealityKitComponent "GroundingShadow"
+                {
+                    bool enableIBLShadow = 1
+                    bool enableMeshShadow = 1
+                    uniform token info:id = "RealityKit.GroundingShadow"
+                }
+            }
+
+            def Cone "Cone_1" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_1/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.7, 0.7, 0.7)
+                float3 xformOp:translate = (-1.1641532e-9, 0.089471795, 2.3283064e-9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Cone "Cone_2" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_1/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.5, 0.5, 0.5)
+                float3 xformOp:translate = (-1.1641532e-9, 0.10941983, 2.3283064e-9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Material "BushMaterial" (
+                references = None
+            )
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Group/Tree/BushMaterial/UsdPreviewSurface.outputs:surface>
+
+                def Shader "UsdPreviewSurface"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.2005999, 0.42262906, 0.23289159) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:occlusion = 0
+                    token outputs:surface
+                }
+            }
+
+            def RealityKitComponent "GroundingShadow"
+            {
+                bool enableIBLShadow = 1
+                bool enableMeshShadow = 1
+                uniform token info:id = "RealityKit.GroundingShadow"
+            }
+        }
+
+        def Xform "Tree_2" (
+            active = true
+            references = None
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1.1499999, 1.1499999, 1.1499999)
+            float3 xformOp:translate = (0, 0, -0.07)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Cylinder "Cylinder" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.07
+                rel material:binding = </Root/Group/Tree_2/Cylinder/DefaultMaterial>
+                double radius = 0.005
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0.034817044, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial" (
+                    references = None
+                )
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    token outputs:surface.connect = </Root/Group/Tree/Cylinder/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (0.34771544, 0.17646722, 0.12778746) (
+                            colorSpace = "srgb_displayp3"
+                        )
+                        float inputs:occlusion = 0
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+
+                def RealityKitComponent "GroundingShadow"
+                {
+                    bool enableIBLShadow = 1
+                    bool enableMeshShadow = 1
+                    uniform token info:id = "RealityKit.GroundingShadow"
+                }
+            }
+
+            def Cone "Cone" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_2/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0.0651885, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def RealityKitComponent "GroundingShadow"
+                {
+                    bool enableIBLShadow = 1
+                    bool enableMeshShadow = 1
+                    uniform token info:id = "RealityKit.GroundingShadow"
+                }
+            }
+
+            def Cone "Cone_1" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_2/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.7, 0.7, 0.7)
+                float3 xformOp:translate = (-1.1641532e-9, 0.089471795, 2.3283064e-9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Cone "Cone_2" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_2/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.5, 0.5, 0.5)
+                float3 xformOp:translate = (-1.1641532e-9, 0.10941983, 2.3283064e-9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Material "BushMaterial" (
+                references = None
+            )
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Group/Tree/BushMaterial/UsdPreviewSurface.outputs:surface>
+
+                def Shader "UsdPreviewSurface"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.2005999, 0.42262906, 0.23289159) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:occlusion = 0
+                    token outputs:surface
+                }
+            }
+
+            def RealityKitComponent "GroundingShadow"
+            {
+                bool enableIBLShadow = 1
+                bool enableMeshShadow = 1
+                uniform token info:id = "RealityKit.GroundingShadow"
+            }
+        }
+
+        def Xform "Tree_3" (
+            active = true
+            references = None
+        )
+        {
+            quatf xformOp:orient = (0.99999994, 0, 0, 0)
+            float3 xformOp:scale = (0.7499998, 0.7499998, 0.7499998)
+            float3 xformOp:translate = (-0.07317523, 3.58201e-9, -0.04154577)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Cylinder "Cylinder" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.07
+                rel material:binding = </Root/Group/Tree_3/Cylinder/DefaultMaterial>
+                double radius = 0.005
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0.034817044, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial" (
+                    references = None
+                )
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    token outputs:surface.connect = </Root/Group/Tree/Cylinder/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (0.34771544, 0.17646722, 0.12778746) (
+                            colorSpace = "srgb_displayp3"
+                        )
+                        float inputs:occlusion = 0
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+
+                def RealityKitComponent "GroundingShadow"
+                {
+                    bool enableIBLShadow = 1
+                    bool enableMeshShadow = 1
+                    uniform token info:id = "RealityKit.GroundingShadow"
+                }
+            }
+
+            def Cone "Cone" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_3/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0.0651885, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def RealityKitComponent "GroundingShadow"
+                {
+                    bool enableIBLShadow = 1
+                    bool enableMeshShadow = 1
+                    uniform token info:id = "RealityKit.GroundingShadow"
+                }
+            }
+
+            def Cone "Cone_1" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_3/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.65, 0.65, 0.65)
+                float3 xformOp:translate = (-1.1641532e-9, 0.089471795, 2.3283064e-9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Cone "Cone_2" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_3/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.5, 0.5, 0.5)
+                float3 xformOp:translate = (-1.1641532e-9, 0.10941983, 2.3283064e-9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Material "BushMaterial" (
+                references = None
+            )
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Group/Tree/BushMaterial/UsdPreviewSurface.outputs:surface>
+
+                def Shader "UsdPreviewSurface"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.2005999, 0.42262906, 0.23289159) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:occlusion = 0
+                    token outputs:surface
+                }
+            }
+
+            def RealityKitComponent "GroundingShadow"
+            {
+                bool enableIBLShadow = 1
+                bool enableMeshShadow = 1
+                uniform token info:id = "RealityKit.GroundingShadow"
+            }
+        }
+
+        def Xform "Tree_4" (
+            active = true
+            references = None
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.7499996, 0.7499996, 0.7499996)
+            float3 xformOp:translate = (-0.0669403, 9.313226e-9, -0.104247816)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Cylinder "Cylinder" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.07
+                rel material:binding = </Root/Group/Tree_4/Cylinder/DefaultMaterial>
+                double radius = 0.005
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0.034817044, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial" (
+                    references = None
+                )
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    token outputs:surface.connect = </Root/Group/Tree/Cylinder/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (0.34771544, 0.17646722, 0.12778746) (
+                            colorSpace = "srgb_displayp3"
+                        )
+                        float inputs:occlusion = 0
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+
+                def RealityKitComponent "GroundingShadow"
+                {
+                    bool enableIBLShadow = 1
+                    bool enableMeshShadow = 1
+                    uniform token info:id = "RealityKit.GroundingShadow"
+                }
+            }
+
+            def Cone "Cone" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_4/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0.0651885, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def RealityKitComponent "GroundingShadow"
+                {
+                    bool enableIBLShadow = 1
+                    bool enableMeshShadow = 1
+                    uniform token info:id = "RealityKit.GroundingShadow"
+                }
+            }
+
+            def Cone "Cone_1" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_4/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.7, 0.7, 0.7)
+                float3 xformOp:translate = (-1.1641532e-9, 0.089471795, 2.3283064e-9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Cone "Cone_2" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_4/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.5, 0.5, 0.5)
+                float3 xformOp:translate = (-1.1641532e-9, 0.10941983, 2.3283064e-9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Material "BushMaterial" (
+                references = None
+            )
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Group/Tree/BushMaterial/UsdPreviewSurface.outputs:surface>
+
+                def Shader "UsdPreviewSurface"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.2005999, 0.42262906, 0.23289159) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:occlusion = 0
+                    token outputs:surface
+                }
+            }
+
+            def RealityKitComponent "GroundingShadow"
+            {
+                bool enableIBLShadow = 1
+                bool enableMeshShadow = 1
+                uniform token info:id = "RealityKit.GroundingShadow"
+            }
+        }
+
+        def Xform "Tree_5" (
+            references = None
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.7499994, 0.7499994, 0.7499994)
+            float3 xformOp:translate = (0.073270254, 9.313226e-9, -0.07723271)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Cylinder "Cylinder" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.07
+                rel material:binding = </Root/Group/Tree_5/Cylinder/DefaultMaterial>
+                double radius = 0.005
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0.034817044, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial" (
+                    references = None
+                )
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    token outputs:surface.connect = </Root/Group/Tree/Cylinder/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (0.34771544, 0.17646722, 0.12778746) (
+                            colorSpace = "srgb_displayp3"
+                        )
+                        float inputs:occlusion = 0
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+
+                def RealityKitComponent "GroundingShadow"
+                {
+                    bool enableIBLShadow = 1
+                    bool enableMeshShadow = 1
+                    uniform token info:id = "RealityKit.GroundingShadow"
+                }
+            }
+
+            def Cone "Cone" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_5/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0.0651885, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def RealityKitComponent "GroundingShadow"
+                {
+                    bool enableIBLShadow = 1
+                    bool enableMeshShadow = 1
+                    uniform token info:id = "RealityKit.GroundingShadow"
+                }
+            }
+
+            def Cone "Cone_1" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_5/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.7, 0.7, 0.7)
+                float3 xformOp:translate = (-1.1641532e-9, 0.089471795, 2.3283064e-9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Cone "Cone_2" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_5/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.5, 0.5, 0.5)
+                float3 xformOp:translate = (-1.1641532e-9, 0.10941983, 2.3283064e-9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Material "BushMaterial" (
+                references = None
+            )
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Group/Tree/BushMaterial/UsdPreviewSurface.outputs:surface>
+
+                def Shader "UsdPreviewSurface"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.2005999, 0.42262906, 0.23289159) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:occlusion = 0
+                    token outputs:surface
+                }
+            }
+
+            def RealityKitComponent "GroundingShadow"
+            {
+                bool enableIBLShadow = 1
+                bool enableMeshShadow = 1
+                uniform token info:id = "RealityKit.GroundingShadow"
+            }
+        }
+
+        def Xform "Tree_6" (
+            references = None
+        )
+        {
+            quatf xformOp:orient = (0.99999994, 0, 0, 0)
+            float3 xformOp:scale = (0.7, 0.7, 0.7)
+            float3 xformOp:translate = (0.03895641, 9.313226e-9, -0.14011817)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Cylinder "Cylinder" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.07
+                rel material:binding = </Root/Group/Tree_6/Cylinder/DefaultMaterial>
+                double radius = 0.005
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0.034817044, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial" (
+                    references = None
+                )
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    token outputs:surface.connect = </Root/Group/Tree/Cylinder/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (0.34771544, 0.17646722, 0.12778746) (
+                            colorSpace = "srgb_displayp3"
+                        )
+                        float inputs:occlusion = 0
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+
+                def RealityKitComponent "GroundingShadow"
+                {
+                    bool enableIBLShadow = 1
+                    bool enableMeshShadow = 1
+                    uniform token info:id = "RealityKit.GroundingShadow"
+                }
+            }
+
+            def Cone "Cone" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_6/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0.0651885, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def RealityKitComponent "GroundingShadow"
+                {
+                    bool enableIBLShadow = 1
+                    bool enableMeshShadow = 1
+                    uniform token info:id = "RealityKit.GroundingShadow"
+                }
+            }
+
+            def Cone "Cone_1" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_6/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.7, 0.7, 0.7)
+                float3 xformOp:translate = (-1.1641532e-9, 0.089471795, 2.3283064e-9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Cone "Cone_2" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_6/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.5, 0.5, 0.5)
+                float3 xformOp:translate = (-1.1641532e-9, 0.10941983, 2.3283064e-9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Material "BushMaterial" (
+                references = None
+            )
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Group/Tree/BushMaterial/UsdPreviewSurface.outputs:surface>
+
+                def Shader "UsdPreviewSurface"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.2005999, 0.42262906, 0.23289159) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:occlusion = 0
+                    token outputs:surface
+                }
+            }
+
+            def RealityKitComponent "GroundingShadow"
+            {
+                bool enableIBLShadow = 1
+                bool enableMeshShadow = 1
+                uniform token info:id = "RealityKit.GroundingShadow"
+            }
+        }
+
+        def Xform "Tree_7" (
+            active = true
+            references = None
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.65, 0.65, 0.65)
+            float3 xformOp:translate = (0.09287222, 5.373015e-9, -0.0256765)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Cylinder "Cylinder" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.07
+                rel material:binding = </Root/Group/Tree_7/Cylinder/DefaultMaterial>
+                double radius = 0.005
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0.034817044, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial" (
+                    references = None
+                )
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    token outputs:surface.connect = </Root/Group/Tree/Cylinder/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (0.34771544, 0.17646722, 0.12778746) (
+                            colorSpace = "srgb_displayp3"
+                        )
+                        float inputs:occlusion = 0
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+
+                def RealityKitComponent "GroundingShadow"
+                {
+                    bool enableIBLShadow = 1
+                    bool enableMeshShadow = 1
+                    uniform token info:id = "RealityKit.GroundingShadow"
+                }
+            }
+
+            def Cone "Cone" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_7/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0.0651885, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def RealityKitComponent "GroundingShadow"
+                {
+                    bool enableIBLShadow = 1
+                    bool enableMeshShadow = 1
+                    uniform token info:id = "RealityKit.GroundingShadow"
+                }
+            }
+
+            def Cone "Cone_1" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_7/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.65, 0.65, 0.65)
+                float3 xformOp:translate = (-1.1641532e-9, 0.089471795, 2.3283064e-9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Cone "Cone_2" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                references = None
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.06
+                rel material:binding = </Root/Group/Tree_7/BushMaterial> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                double radius = 0.04
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.5, 0.5, 0.5)
+                float3 xformOp:translate = (-1.1641532e-9, 0.10941983, 2.3283064e-9)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Material "BushMaterial" (
+                references = None
+            )
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Group/Tree/BushMaterial/UsdPreviewSurface.outputs:surface>
+
+                def Shader "UsdPreviewSurface"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.2005999, 0.42262906, 0.23289159) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:occlusion = 0
+                    token outputs:surface
+                }
+            }
+
+            def RealityKitComponent "GroundingShadow"
+            {
+                bool enableIBLShadow = 1
+                bool enableMeshShadow = 1
+                uniform token info:id = "RealityKit.GroundingShadow"
+            }
+        }
+
+        def Cylinder "Cylinder" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            references = None
+        )
+        {
+            uniform token axis = "Y"
+            double height = 0.002
+            rel material:binding = </Root/Group/Cylinder/DefaultMaterial> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.07
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1.5384614, 1.5384614, 1.5384614)
+            float3 xformOp:translate = (0.007612161, 0, -0.06793066)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial" (
+                references = None
+            )
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Group/Cylinder/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.1251381, 0.07426426, 0.035903946) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+    }
+}
+

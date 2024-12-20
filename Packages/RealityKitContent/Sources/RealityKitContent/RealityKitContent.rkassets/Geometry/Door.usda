@@ -1,0 +1,117 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (445.0.0.0.2)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["Cube", "Material", "Cube_1", "Cube_2", "Cube_3", "Cube_4"]
+    def Cube "Cube" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        references = None
+    )
+    {
+        rel material:binding = </Root/Cube/DoorMaterial> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (0.2, 0.3, 0.03)
+        float3 xformOp:translate = (-0.020546041, 0.029928938, 1.3969839e-9)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Material "DoorMaterial"
+        {
+            token outputs:mtlx:surface
+            token outputs:realitykit:vertex
+            token outputs:surface.connect = </Root/Cube/DoorMaterial/UsdPreviewSurface.outputs:surface>
+
+            def Shader "UsdPreviewSurface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.76017326, 0.7194349, 0.6321408) (
+                    colorSpace = "srgb_displayp3"
+                )
+                token outputs:surface
+            }
+        }
+    }
+
+    def Cube "Cube_1" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        references = None
+    )
+    {
+        reorder nameChildren = ["Maple_Plywood", "NaturalCork", "MetallicGoldPULeather", "DefaultMaterial"]
+        rel material:binding = </Root/Cube/DoorMaterial> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (0.2, 0.3, 0.03)
+        float3 xformOp:translate = (0.020378493, 0.029928938, 1.3969839e-9)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Cube "Cube_2" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        references = None
+    )
+    {
+        reorder nameChildren = ["Scratched_Metallic_Paint", "Maple_Plywood"]
+        rel material:binding = </Root/Cube_2/Scratched_Metallic_Paint> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (0.02, 0.3, 0.03)
+        float3 xformOp:translate = (-0.042749092, 0.029928938, 1.3969839e-9)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Cube "Cube_3" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        references = None
+    )
+    {
+        reorder nameChildren = ["Scratched_Metallic_Paint", "Maple_Plywood"]
+        rel material:binding = </Root/Cube_3/Scratched_Metallic_Paint> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (0.02, 0.3, 0.03)
+        float3 xformOp:translate = (0.04253959, 0.029928938, 1.3969839e-9)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Cube "Cube_4" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        customData = {
+            float3 rotationEulerHint = (0, 0, 1.5707964)
+        }
+        references = None
+    )
+    {
+        reorder nameChildren = ["Scratched_Metallic_Paint", "Maple_Plywood"]
+        rel material:binding = </Root/Cube_4/Scratched_Metallic_Paint> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double size = 0.2
+        quatf xformOp:orient = (0.70710677, 0, 0, 0.70710677)
+        float3 xformOp:scale = (0.02, 0.47, 0.03)
+        float3 xformOp:translate = (-0.00009999463, 0.061795518, 1.3969839e-9)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+

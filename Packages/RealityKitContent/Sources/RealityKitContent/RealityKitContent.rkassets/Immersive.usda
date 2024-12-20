@@ -1,0 +1,1078 @@
+#usda 1.0
+(
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+reorder rootPrims = ["Root", "GridMaterial"]
+
+def Xform "Root" (
+    references = None
+)
+{
+    reorder nameChildren = ["Anchor", "Timeline", "Anchor"]
+    def RealityKitTimeline "Timeline"
+    {
+        uniform token info:id = "028B6120-9CE0-4A23-A96C-F677A040CC2D"
+
+        def RealityKitTrack "Track" (
+            references = None
+        )
+        {
+            uniform token info:id = "38FD1584-49EC-4931-A1D4-4557E49605FE"
+
+            def RealityKitAction "Billboard"
+            {
+                string actionKind = "lookAt"
+                double duration = 3600
+                uniform token info:id = "B453DA01-920F-4968-AA80-E629C16945AC"
+                double startTime = 0
+                rel target = </Root/Anchor/Target/LabelsParent>
+                float3 upDirection = (0, 1, 0)
+
+                def RealityKitStruct "transitionIn"
+                {
+                    def RealityKitStruct "timingFunction"
+                    {
+                    }
+                }
+
+                def RealityKitStruct "transitionOut"
+                {
+                    def RealityKitStruct "timingFunction"
+                    {
+                    }
+                }
+            }
+        }
+    }
+
+    def Xform "Anchor" (
+        active = true
+    )
+    {
+        reorder nameChildren = ["Anchoring", "Sphere", "OcclusionKeyboard", "Target", "Keys"]
+        def RealityKitComponent "Anchoring"
+        {
+            uniform token info:id = "RealityKit.Anchoring"
+
+            def RealityKitStruct "descriptor"
+            {
+                token type = "Object"
+                asset url = @RefObjs/magic_keyboard.referenceobject@
+            }
+        }
+
+        def "OcclusionKeyboard" (
+            references = @Geometry/MagicKeyboard.usdz@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.01, 0.01, 0.01)
+            float3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            over "XzpvuqrbKmwKAOm" (
+                references = None
+            )
+            {
+                over "ksAMvDwJpOAfXyx" (
+                    references = None
+                )
+                {
+                    over "lHKsWcLqLKPMrzJ"
+                    {
+                        over "xlJinjteLGOVUND" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                            references = None
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                            float3 xformOp:translate = (0, 0, 0)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        over "tqNFvjCpBgDkkdj" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                            references = None
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "jhWvoztlHpBQwdW" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                            references = None
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "JAAxSMEebyfkPwX" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                            references = None
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "TdBcPMMawqtLxLN" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "dCGRIQeGibFkevY" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "JQJHuGMzHgIRuPO" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "AjWnRUNdMMBYHjQ" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "GWPpGmoLgDGZdZs" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "qXZnbKATpMqpHBH" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "lziQmNZWKspHMZl" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                            references = None
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "FtXZBMEBgzqwGru" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "unDAzaAztpEktlJ" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "GritPBhZzLbdDNs" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "dCPfCJlBwopQrQH" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "WvLqwNdpdpeiPWA" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "jXvczoWhCzdhdFY" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "ChkbbNqsChJIdkx" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "KNXidAMWsjzHCPV" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "EHHlcXWLxqHsELY" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "ZGcZenLTYTnndxq" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+
+                        over "HoqhcRzRTRDTQdo" (
+                            prepend apiSchemas = ["MaterialBindingAPI"]
+                        )
+                        {
+                            rel material:binding = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial> (
+                                bindMaterialAs = "weakerThanDescendants"
+                            )
+                        }
+                    }
+                }
+            }
+
+            over "WFOXcRJCxzvkOhe" (
+                references = None
+            )
+            {
+                reorder nameChildren = ["ZvQPabDyaqZwADG", "KjcMngPdWbaGeWn", "mCyquiUxNPZwZvG", "djAuXkPXWRHCbrF", "mTEtKiVCZQTAUVm", "zeVASJmnTYYZUqj", "jfqtNGSwBifPTQG", "piYdnaHlCSvBicA", "XpLNvLZUvdehxxD", "AnDdksEjhGahhSZ", "glWPBnckCWwIcqp", "sFSdgWhXmBTwpEg", "MKDCnsXfiCXRZLn", "nIjmtGlIjEVJPkV", "TkwjDuUpJlQewgM", "KhtlCqHNCJTfbJk", "DHMrlRkcRiNephe", "OcclusionMaterial"]
+                over "ZvQPabDyaqZwADG" (
+                    references = None
+                )
+                {
+                    token outputs:realitykit:vertex
+                    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (335.25, 100.5)
+
+                    over "UPzaIXDTRYLpSbM"
+                    {
+                        float2 ui:nodegraph:node:pos = (93.5, 100.5)
+                    }
+                }
+
+                over "KjcMngPdWbaGeWn" (
+                    references = None
+                )
+                {
+                    string inputs:oJZgxYLGjwMielY:varname (
+                        customData = {
+                            dictionary realitykit = {
+                                float2 positionInSubgraph = (474.75, 288.5)
+                            }
+                        }
+                    )
+                    token outputs:realitykit:vertex
+                    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (861.25, 100.5)
+
+                    over "UetGhuuDUAjryIm"
+                    {
+                        float2 ui:nodegraph:node:pos = (361.25, 100.5)
+                    }
+
+                    over "iqdfLNgzDlqvnkG"
+                    {
+                        float2 ui:nodegraph:node:pos = (98.25, 100.5)
+                    }
+
+                    over "NeygvuaXRhdacmw"
+                    {
+                        float2 ui:nodegraph:node:pos = (619.5, 100.5)
+                    }
+                }
+
+                over "mCyquiUxNPZwZvG" (
+                    references = None
+                )
+                {
+                    string inputs:oJZgxYLGjwMielY:varname (
+                        customData = {
+                            dictionary realitykit = {
+                                float2 positionInSubgraph = (474.75, 288.5)
+                            }
+                        }
+                    )
+                    token outputs:realitykit:vertex
+                    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (861.25, 100.5)
+
+                    over "UetGhuuDUAjryIm"
+                    {
+                        float2 ui:nodegraph:node:pos = (361.25, 100.5)
+                    }
+
+                    over "OChABdANjXsllmT"
+                    {
+                        float2 ui:nodegraph:node:pos = (619.5, 100.5)
+                    }
+
+                    over "iqdfLNgzDlqvnkG"
+                    {
+                        float2 ui:nodegraph:node:pos = (98.25, 100.5)
+                    }
+                }
+
+                over "djAuXkPXWRHCbrF" (
+                    references = None
+                )
+                {
+                    string inputs:cKGkgAjxeXESGbD:varname (
+                        customData = {
+                            dictionary realitykit = {
+                                float2 positionInSubgraph = (471.5, 288.5)
+                            }
+                        }
+                    )
+                    token outputs:realitykit:vertex
+                    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (854.75, 100.5)
+
+                    over "FTOIzucwXNBDVnJ"
+                    {
+                        float2 ui:nodegraph:node:pos = (613, 100.5)
+                    }
+
+                    over "iqdfLNgzDlqvnkG"
+                    {
+                        float2 ui:nodegraph:node:pos = (98.25, 100.5)
+                    }
+
+                    over "tvwbiqPpLNHgtKX"
+                    {
+                        float2 ui:nodegraph:node:pos = (358, 100.5)
+                    }
+                }
+
+                over "mTEtKiVCZQTAUVm" (
+                    references = None
+                )
+                {
+                    token outputs:realitykit:vertex
+                    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (335.25, 100.5)
+
+                    over "eyTEazYboIsSiJU"
+                    {
+                        float2 ui:nodegraph:node:pos = (93.5, 100.5)
+                    }
+                }
+
+                over "jfqtNGSwBifPTQG" (
+                    references = None
+                )
+                {
+                    token outputs:realitykit:vertex
+                    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (335.25, 100.5)
+
+                    over "rscMDMkTggYeaiH"
+                    {
+                        float2 ui:nodegraph:node:pos = (93.5, 100.5)
+                    }
+                }
+
+                over "zeVASJmnTYYZUqj" (
+                    references = None
+                )
+                {
+                    token outputs:realitykit:vertex
+                    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (335.25, 100.5)
+
+                    over "VUEweBuPDcSrLEl"
+                    {
+                        float2 ui:nodegraph:node:pos = (93.5, 100.5)
+                    }
+                }
+
+                over "DHMrlRkcRiNephe" (
+                    references = None
+                )
+                {
+                    string inputs:oJZgxYLGjwMielY:varname (
+                        customData = {
+                            dictionary realitykit = {
+                                float2 positionInSubgraph = (474.75, 288.5)
+                            }
+                        }
+                    )
+                    token outputs:realitykit:vertex
+                    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (861.25, 100.5)
+
+                    over "iqdfLNgzDlqvnkG"
+                    {
+                        float2 ui:nodegraph:node:pos = (98.25, 100.5)
+                    }
+
+                    over "dnklUKREAmGKurd"
+                    {
+                        float2 ui:nodegraph:node:pos = (619.5, 100.5)
+                    }
+
+                    over "UetGhuuDUAjryIm"
+                    {
+                        float2 ui:nodegraph:node:pos = (361.25, 100.5)
+                    }
+                }
+
+                def Material "OcclusionMaterial" (
+                    references = None
+                )
+                {
+                    token outputs:mtlx:surface.connect = </Root/Anchor/OcclusionKeyboard/WFOXcRJCxzvkOhe/OcclusionMaterial/Occlusion.outputs:out>
+                    token outputs:realitykit:vertex
+                    float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (335.25, 100.5)
+
+                    def Shader "Occlusion" (
+                        references = None
+                    )
+                    {
+                        uniform token info:id = "ND_realitykit_occlusion_surfaceshader"
+                        token outputs:out
+                        float2 ui:nodegraph:node:pos = (108.359375, 93.33594)
+                        int ui:nodegraph:node:stackingOrder = 6
+                    }
+
+                    def Shader "PreviewSurface" (
+                        references = None
+                    )
+                    {
+                        uniform token info:id = "ND_UsdPreviewSurface_surfaceshader"
+                        color3f inputs:diffuseColor = (0, 0.8014915, 0.05136679) (
+                            colorSpace = "srgb_displayp3"
+                        )
+                        token outputs:out
+                        float2 ui:nodegraph:node:pos = (110.5, -72.92578)
+                        int ui:nodegraph:node:stackingOrder = 10
+                    }
+                }
+            }
+
+            def RealityKitComponent "Collider"
+            {
+                uint group = 1
+                uniform token info:id = "RealityKit.Collider"
+                uint mask = 4294967295
+                token type = "Default"
+
+                def RealityKitStruct "Shape"
+                {
+                    float3 extent = (27.90782, 1.0857221, 11.493177)
+                    float radius = 13.95391
+                    token shapeType = "Box"
+
+                    def RealityKitStruct "pose"
+                    {
+                        float3 position = (0, 0.53685874, 0)
+                    }
+                }
+            }
+        }
+
+        def Xform "Target" (
+            references = None
+        )
+        {
+            reorder nameChildren = ["LabelsParent", "ScenesParent"]
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0, 0, -0.11141819)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Xform "ScenesParent" (
+                active = true
+                references = None
+            )
+            {
+                reorder nameChildren = ["Welcome", "Forest", "Bear", "BearPin", "Door", "End", "GameOver"]
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Xform "Forest" (
+                    active = true
+                    references = @Geometry/Forest.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    float3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def RealityKitComponent "HierarchicalFade"
+                    {
+                        uniform token info:id = "RealityKit.HierarchicalFade"
+                        float opacity = 0
+                    }
+                }
+
+                def Xform "Bear" (
+                    active = true
+                    references = @Geometry/Bear.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    float3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def RealityKitComponent "HierarchicalFade"
+                    {
+                        uniform token info:id = "RealityKit.HierarchicalFade"
+                        float opacity = 0
+                    }
+                }
+
+                def Xform "Door" (
+                    active = true
+                    references = @Geometry/Door.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    float3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def RealityKitComponent "HierarchicalFade"
+                    {
+                        uniform token info:id = "RealityKit.HierarchicalFade"
+                        float opacity = 0
+                    }
+                }
+
+                def Xform "End" (
+                    active = true
+                    references = @Geometry/End.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    float3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def RealityKitComponent "HierarchicalFade"
+                    {
+                        uniform token info:id = "RealityKit.HierarchicalFade"
+                        float opacity = 0
+                    }
+                }
+
+                def Xform "GameOver" (
+                    active = true
+                    references = @Geometry/GameOver.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    float3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def RealityKitComponent "HierarchicalFade"
+                    {
+                        uniform token info:id = "RealityKit.HierarchicalFade"
+                        float opacity = 0
+                    }
+                }
+
+                def Xform "BearPin" (
+                    active = true
+                    references = @Geometry/BearPin.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (1, 1, 1)
+                    float3 xformOp:translate = (0, 0, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def RealityKitComponent "HierarchicalFade"
+                    {
+                        uniform token info:id = "RealityKit.HierarchicalFade"
+                        float opacity = 0
+                    }
+                }
+            }
+
+            def Xform "LabelsParent" (
+                active = true
+                references = None
+            )
+            {
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0, 0.06381305)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def RealityKitComponent "Billboard"
+                {
+                    float blendFactor = 0
+                    uniform token info:id = "RealityKit.Billboard"
+                }
+
+                def RealityKitComponent "RCP_BehaviorsContainer"
+                {
+                    rel behaviors = </Root/Anchor/Target/LabelsParent/OnAddedToScene>
+                    uniform token info:id = "RCP.BehaviorsContainer"
+                }
+
+                def Preliminary_Behavior "OnAddedToScene"
+                {
+                    rel actions = </Root/Anchor/Target/LabelsParent/OnAddedToScene/Action>
+                    uniform bool exclusive
+                    rel triggers = </Root/Anchor/Target/LabelsParent/OnAddedToScene/Trigger>
+
+                    def Preliminary_Trigger "Trigger"
+                    {
+                        rel affectedObjects = </Root/Anchor/Target/LabelsParent>
+                        token info:id = "SceneTransition"
+                    }
+
+                    def Preliminary_Action "Action"
+                    {
+                        rel affectedObjects = </Root>
+                        rel animationLibraryKey = </Root/Timeline>
+                        rel animationLibraryKeyOverrideKey = </Root/Anchor/Target/LabelsParent/OnAddedToScene/Trigger>
+                        token info:id = "PlayTimeline"
+                        int loops = 0
+                        int performCount = 1
+                        token type = "serial"
+                    }
+                }
+            }
+        }
+
+        def Xform "Keys" (
+            references = None
+        )
+        {
+            reorder nameChildren = ["Row1", "Row2", "Row3", "Row4", "Row5", "N", "Row6"]
+            def Xform "Row1" (
+                active = true
+                references = None
+            )
+            {
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+
+            def Xform "Row2" (
+                active = true
+                references = None
+            )
+            {
+                reorder nameChildren = ["_1", "_2", "_3", "_4", "_5", "_6", "_7", "_8", "_9", "_10", "DELETE"]
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def "DELETE" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (1.65, 1, 1)
+                    float3 xformOp:translate = (0.123475805, 0.0041497834, -0.02746151)
+                }
+            }
+
+            def Xform "Row3" (
+                active = true
+                references = None
+            )
+            {
+                reorder nameChildren = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"]
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def "Q" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (-0.10006898, 0.004149772, -0.009128045)
+                }
+
+                def "W" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (-0.08070223, 0.004149772, -0.009128045)
+                }
+
+                def "E" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (-0.061198153, 0.004149772, -0.009128045)
+                }
+
+                def "R" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (-0.042673565, 0.004149772, -0.009128045)
+                }
+
+                def "T" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (-0.024254799, 0.004149772, -0.009128045)
+                }
+
+                def "Y" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (-0.004507413, 0.004149774, -0.009128045)
+                }
+
+                def "U" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (0.014016185, 0.004149772, -0.009128045)
+                }
+
+                def "I" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (0.033489566, 0.004149772, -0.009128045)
+                }
+
+                def "O" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (0.052261874, 0.004149772, -0.009128045)
+                }
+
+                def "P" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (0.071261436, 0.004149772, -0.009128045)
+                }
+            }
+
+            def Xform "Row4" (
+                active = true
+                references = None
+            )
+            {
+                reorder nameChildren = ["A", "S", "D", "F", "G", "H", "J", "K", "L", "RETURN"]
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def "A" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (-0.09451513, 0.004149772, 0.009297032)
+
+                    over "A"
+                    {
+                        over "Emitter" (
+                            references = None
+                        )
+                        {
+                        }
+                    }
+                }
+
+                def "S" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (-0.0757298, 0.004149772, 0.009297032)
+
+                    over "A"
+                    {
+                        over "Emitter" (
+                            references = None
+                        )
+                        {
+                        }
+                    }
+                }
+
+                def "D" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (-0.056800608, 0.004149772, 0.009297032)
+                }
+
+                def "F" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (-0.037936434, 0.004149772, 0.009297032)
+                }
+
+                def "G" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (-0.018924944, 0.004149772, 0.009297032)
+                }
+
+                def "H" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (0.00033281744, 0.004149772, 0.009297032)
+                }
+
+                def "J" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (0.019054025, 0.004149772, 0.009297032)
+                }
+
+                def "L" (
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (0.05685308, 0.004149772, 0.009297032)
+                }
+
+                def "K" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (0.038279682, 0.004149772, 0.009297032)
+                }
+
+                def "RETURN" (
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (2, 1, 1)
+                    float3 xformOp:translate = (0.12144117, 0.0030997628, 0.009297032)
+
+                    over "Collider"
+                    {
+                        over "Shape"
+                        {
+                            float3 extent = (0.0115, 0.011, 0.011)
+                        }
+                    }
+                }
+            }
+
+            def Xform "Row5" (
+                active = true
+                references = None
+            )
+            {
+                reorder nameChildren = ["Z", "X", "C", "V", "B", "N", "M"]
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def "C" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (-0.04721201, 0.0022065938, 0.028026426)
+                }
+
+                def "B" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (-0.00945667, 0.0022065938, 0.028026426)
+                }
+
+                def "Z" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (-0.08533335, 0.0022065938, 0.028026426)
+                }
+
+                def "X" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (-0.06651075, 0.0022065938, 0.028026426)
+                }
+
+                def "V" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (-0.028490208, 0.0022065938, 0.028026426)
+                }
+
+                def "N" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (0.009429533, 0.0022065938, 0.028026426)
+                }
+
+                def "M" (
+                    active = true
+                    references = @Geometry/Key.usda@
+                )
+                {
+                    quatf xformOp:orient = (1, 0, 0, 0)
+                    float3 xformOp:scale = (0.8, 0.8, 0.8)
+                    float3 xformOp:translate = (0.028324686, 0.0022065938, 0.028026426)
+                }
+            }
+
+            def Xform "Row6" (
+                active = true
+                references = None
+            )
+            {
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+        }
+    }
+}
+

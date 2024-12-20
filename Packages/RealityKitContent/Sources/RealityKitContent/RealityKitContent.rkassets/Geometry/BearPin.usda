@@ -1,0 +1,1020 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (445.0.0.0.2)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root" (
+    references = None
+)
+{
+    reorder nameChildren = ["Emitter", "Bear", "Group"]
+    def Xform "Group" (
+        active = true
+        references = None
+    )
+    {
+        reorder nameChildren = ["Cylinder", "PushPin"]
+        float3 xformOp:translate = (0.08655286, 0, -0.019981012)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Cylinder "Cylinder" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            references = None
+        )
+        {
+            uniform token axis = "Y"
+            double height = 0.001
+            rel material:binding = </Root/Group/Cylinder/DefaultMaterial>
+            double radius = 0.02
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial" (
+                references = None
+            )
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Group/Cylinder/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.8664397, 0.8740333, 0.62402105) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Xform "PushPin" (
+            active = true
+        )
+        {
+            reorder nameChildren = ["Cone", "Cylinder_1"]
+            float3 xformOp:translate = (0, 0.0018922612, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Cylinder "Cylinder_1" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.016
+                rel material:binding = </Root/Group/PushPin/Cylinder_1/DefaultMaterial>
+                double radius = 0.0004
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (1, 1, 1)
+                float3 xformOp:translate = (0.00017076731, 0.010299831, 0.0005783383)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    token outputs:surface.connect = </Root/Group/PushPin/Cylinder_1/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (0.59157956, 0.58427334, 0.58433986) (
+                            colorSpace = "srgb_displayp3"
+                        )
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+            }
+
+            def Cone "Cone" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                customData = {
+                    float3 rotationEulerHint = (0, 0, 3.1415927)
+                }
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.02
+                rel material:binding = </Root/Group/PushPin/Cone/DefaultMaterial>
+                double radius = 0.01
+                quatf xformOp:orient = (-4.371138e-8, 0, 0, 1)
+                float3 xformOp:scale = (0.6844399, 0.6844399, 0.6844399)
+                float3 xformOp:translate = (0.00019712001, 0.02347039, 0.0005548056)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    token outputs:surface.connect = </Root/Group/PushPin/Cone/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (0.3713295, 0.76206523, 0.25844693) (
+                            colorSpace = "srgb_displayp3"
+                        )
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+            }
+
+            def Cone "Cone_1" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                customData = {
+                    float3 rotationEulerHint = (0, 0, 0)
+                }
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.02
+                rel material:binding = </Root/Group/PushPin/Cone_1/DefaultMaterial>
+                double radius = 0.01
+                float2 ui:nodegraph:node:pos = (20, 20)
+                int ui:nodegraph:node:stackingOrder = 1
+                quatf xformOp:orient = (1, 0, 0, 0)
+                float3 xformOp:scale = (0.24, 0.24, 0.24)
+                float3 xformOp:translate = (0.00019712001, 0.018851496, 0.0005548056)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    token outputs:surface.connect = </Root/Group/PushPin/Cone_1/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (0.3713295, 0.76206523, 0.25844693) (
+                            colorSpace = "srgb_displayp3"
+                        )
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+            }
+
+            def Cone "Cone_2" (
+                active = true
+                prepend apiSchemas = ["MaterialBindingAPI"]
+                customData = {
+                    float3 rotationEulerHint = (0, 0, 3.1415927)
+                }
+            )
+            {
+                uniform token axis = "Y"
+                double height = 0.02
+                rel material:binding = </Root/Group/PushPin/Cone_2/DefaultMaterial>
+                double radius = 0.0017000000000000001
+                float2 ui:nodegraph:node:pos = (40, 40)
+                int ui:nodegraph:node:stackingOrder = 2
+                quatf xformOp:orient = (-4.371139e-8, 0, 0, 1)
+                float3 xformOp:scale = (0.24, 0.24, 0.24)
+                float3 xformOp:translate = (0.00015365332, -0.000012133736, 0.0005729832)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Material "DefaultMaterial"
+                {
+                    token outputs:mtlx:surface
+                    token outputs:realitykit:vertex
+                    token outputs:surface.connect = </Root/Group/PushPin/Cone_2/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                    def Shader "DefaultSurfaceShader"
+                    {
+                        uniform token info:id = "UsdPreviewSurface"
+                        color3f inputs:diffuseColor = (0.60602677, 0.59535414, 0.59613824) (
+                            colorSpace = "srgb_displayp3"
+                        )
+                        float inputs:roughness = 0.75
+                        token outputs:surface
+                    }
+                }
+            }
+
+            def RealityKitComponent "Collider"
+            {
+                uint group = 1
+                uniform token info:id = "RealityKit.Collider"
+                uint mask = 4294967295
+                token type = "Default"
+
+                def RealityKitStruct "Shape"
+                {
+                    float3 extent = (0.013688799, 0.032726925, 0.013688798)
+                    token shapeType = "Box"
+
+                    def RealityKitStruct "pose"
+                    {
+                        float3 position = (0.00019712001, 0.013951329, 0.0005548056)
+                    }
+                }
+            }
+
+            def RealityKitComponent "InputTarget"
+            {
+                uniform token info:id = "RealityKit.InputTarget"
+            }
+        }
+    }
+
+    def Xform "Emitter" (
+        customData = {
+            float3 rotationEulerHint = (1.5707961, 3.16195, 0)
+        }
+        references = None
+    )
+    {
+        quatf xformOp:orient = (-0.0071973503, -0.00719735, 0.7070702, -0.70707005)
+        float3 xformOp:scale = (0.9999998, 0.9999998, 0.9999998)
+        float3 xformOp:translate = (0, 0.003227666, 0.06143724)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "VFXEmitter"
+        {
+            token info:id = "RealityKit.VFXEmitter"
+
+            def RealityKitStruct "currentState"
+            {
+                token birthDirection = "Normal"
+                token birthLocation = "Surface"
+                float3 emissionDirection = (0, 0, 0)
+                double emissionDuration = 1
+                double emissionDurationVariation = 0
+                token emitterShape = "Point"
+                double idleDuration = 0
+                double idleDurationVariation = 0
+                bool isEmitting = 1
+                bool isLocal = 1
+                bool isLocalFields = 1
+                bool isSpawningEnabled = 1
+                bool loops = 1
+                float particleSpeed = 0.06
+                float particleSpeedVariation = 0.04
+                float3 shapeSize = (0.05, 0.05, 0.05)
+                bool spawnInheritParentColor = 1
+                token spawnOccasion = "OnUpdate"
+                float spawnSpreadFactor = 0
+                float spawnSpreadFactorVariation = 0
+                float spawnVelocityFactor = 1
+                double warmupDuration = 1.5
+
+                def RealityKitStruct "mainEmitter"
+                {
+                    float3 acceleration = (0, 1, -1)
+                    token animationRepeatMode = "Looping"
+                    token billboardMode = "Billboard"
+                    float birthRate = 200
+                    float birthRateVariation = 0
+                    token blendMode = "Additive"
+                    float colorEvolutionPower = 1
+                    int64 columnCount = 4
+                    float dampingFactor = 0.25
+                    float4 endColorA = (1, 0.051991113, 1, 1)
+                    float4 endColorB = (0, 0.98059916, 1, 1)
+                    float frameRate = 30
+                    float frameRateVariation = 0
+                    int64 initialFrame = 0
+                    int64 initialFrameVariation = 2
+                    bool isAnimated = 1
+                    bool isLightingEnabled = 0
+                    float noiseAnimationSpeed = 1
+                    float noiseScale = 1
+                    float noiseStrength = 1
+                    token opacityOverLife = "GradualFadeInOut"
+                    float particleAngle = 0
+                    float particleAngleVariation = 0.5
+                    float particleAngularVelocity = 0.25
+                    float particleAngularVelocityVariation = 0.5
+                    asset particleImage = @../ParticleEmitterPresetTextures/twinkle.exr@
+                    double particleLifeSpan = 0.1
+                    double particleLifeSpanVariation = 0.2
+                    float particleMass = 1
+                    float particleMassVariation = 0.2
+                    float particleSize = 0.006
+                    float particleSizeVariation = 0.004
+                    float3 radialGravityCenter = (0, 0, 0)
+                    float radialGravityStrength = 0
+                    int64 rowCount = 4
+                    float sizeMultiplierAtEndOfLifespan = 0.35
+                    float sizeMultiplierAtEndOfLifespanPower = 3
+                    token sortOrder = "IncreasingDepth"
+                    float spreadingAngle = 0
+                    float4 startColorA = (1, 0.051991113, 1, 1)
+                    float4 startColorB = (0.9986965, 0.9674097, 0, 1)
+                    float stretchFactor = 0
+                    bool useEndColor = 1
+                    bool useEndColorRange = 1
+                    bool useStartColorRange = 1
+                    float3 vortexDirection = (0, 1, 0)
+                    float vortexStrength = 0
+                }
+
+                def RealityKitStruct "spawnedEmitter"
+                {
+                    float3 acceleration = (0, -0.04, 0)
+                    token animationRepeatMode = "AutoReverse"
+                    token billboardMode = "Billboard"
+                    float birthRate = 25
+                    float birthRateVariation = 0
+                    token blendMode = "Additive"
+                    float colorEvolutionPower = 0
+                    int64 columnCount = 4
+                    float dampingFactor = 3
+                    float4 endColorA = (0, 0.98059916, 1, 1)
+                    float4 endColorB = (1, 0.051991113, 1, 1)
+                    float frameRate = 24
+                    float frameRateVariation = 0
+                    int64 initialFrame = 2
+                    int64 initialFrameVariation = 4
+                    bool isAnimated = 1
+                    bool isLightingEnabled = 0
+                    float noiseAnimationSpeed = 0.25
+                    float noiseScale = 1
+                    float noiseStrength = 0.1
+                    token opacityOverLife = "GradualFadeInOut"
+                    float particleAngle = 0.745
+                    float particleAngleVariation = 0.25
+                    float particleAngularVelocity = 0.25
+                    float particleAngularVelocityVariation = 0
+                    asset particleImage = @../ParticleEmitterPresetTextures/twinkle.exr@
+                    double particleLifeSpan = 0.2
+                    double particleLifeSpanVariation = 0.25
+                    float particleMass = 1
+                    float particleMassVariation = 2
+                    float particleSize = 0.02
+                    float particleSizeVariation = 0.004
+                    float3 radialGravityCenter = (0, 0, 0)
+                    float radialGravityStrength = 0
+                    int64 rowCount = 4
+                    float sizeMultiplierAtEndOfLifespan = 0
+                    float sizeMultiplierAtEndOfLifespanPower = 1
+                    token sortOrder = "IncreasingID"
+                    float spreadingAngle = 0
+                    float4 startColorA = (1, 0.051991113, 1, 0.04)
+                    float4 startColorB = (0, 0.98059916, 1, 0.04)
+                    float stretchFactor = 0
+                    bool useEndColor = 0
+                    bool useEndColorRange = 1
+                    bool useStartColorRange = 1
+                    float3 vortexDirection = (0, 1, 0)
+                    float vortexStrength = 0
+                }
+            }
+        }
+
+        def RealityKitComponent "HierarchicalFade"
+        {
+            uniform token info:id = "RealityKit.HierarchicalFade"
+            float opacity = 0
+        }
+    }
+
+    def Xform "Bear" (
+        active = true
+    )
+    {
+        reorder nameChildren = ["Sphere", "Sphere_1", "Sphere_2", "Sphere_3", "Sphere_4", "Sphere_5", "Sphere_6", "Sphere_7", "Sphere_8", "Sphere_10", "Sphere_9", "Sphere_11", "Sphere_12", "Cone", "Capsule", "Capsule_1", "Capsule_2", "Sphere_13", "Capsule_3"]
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1.0566065, 1.0566065, 1.0566065)
+        float3 xformOp:translate = (0, 0, -0.03)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Sphere "Sphere" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Bear/Sphere/DefaultMaterial>
+            double radius = 0.1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.26, 0.32, 0.26)
+            float3 xformOp:translate = (0.0014507696, 0.033413485, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Sphere/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.6354592, 0.7428822, 0.89652425) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Sphere "Sphere_1" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Bear/Sphere_1/DefaultMaterial>
+            double radius = 0.1
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.24859737, 0.24859737, 0.24859737)
+            float3 xformOp:translate = (0.0010228232, 0.08310421, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Sphere_1/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.8490821, 0.7766343, 0.75337654) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Sphere "Sphere_2" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (1.2924612, 0, 0)
+            }
+        )
+        {
+            rel material:binding = </Root/Bear/Sphere_2/DefaultMaterial>
+            double radius = 0.1
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (0.7983594, 0.6021814, 0, 0)
+            float3 xformOp:scale = (0.09013576, 0.017703466, 0.09013575)
+            float3 xformOp:translate = (-0.013184786, 0.10712967, -0.00094258785)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Sphere_2/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.6272951, 0.7225259, 0.84611285) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Sphere "Sphere_3" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (1.292461, 0, 0)
+            }
+        )
+        {
+            rel material:binding = </Root/Bear/Sphere_3/DefaultMaterial>
+            double radius = 0.1
+            float2 ui:nodegraph:node:pos = (60, 60)
+            int ui:nodegraph:node:stackingOrder = 3
+            quatf xformOp:orient = (0.7983594, 0.6021813, 0, 0)
+            float3 xformOp:scale = (0.090135776, 0.017703466, 0.09013575)
+            float3 xformOp:translate = (0.016323507, 0.10712967, -0.00094258785)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Sphere_3/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.6159286, 0.7146948, 0.8382625) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Sphere "Sphere_4" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (0, -0.41180658, 0)
+            }
+        )
+        {
+            rel material:binding = </Root/Bear/Sphere_4/DefaultMaterial>
+            double radius = 0.1
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (0.9788767, 0, -0.20445146, 0)
+            float3 xformOp:scale = (0.12120903, 0.12120903, 0.21009564)
+            float3 xformOp:translate = (-0.01741419, 0.014121693, 0.018358067)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Sphere_4/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.8745546, 0.827577, 0.81204206) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Sphere "Sphere_5" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (0, 0.49613944, 0)
+            }
+        )
+        {
+            rel material:binding = </Root/Bear/Sphere_5/DefaultMaterial>
+            double radius = 0.1
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (0.9693882, 0, 0.24553323, 0)
+            float3 xformOp:scale = (0.121209025, 0.12120903, 0.21009564)
+            float3 xformOp:translate = (0.021088965, 0.014121693, 0.020247824)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Sphere_5/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.8359422, 0.79614884, 0.78453726) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Sphere "Sphere_6" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Bear/Sphere_6/DefaultMaterial>
+            double radius = 0.1
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.16082285, 0.16082285, 0.12)
+            float3 xformOp:translate = (-0.025531702, 0.015089054, 0.03668303)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Sphere_6/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.6195629, 0.71455413, 0.84217435) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Sphere "Sphere_7" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Bear/Sphere_7/DefaultMaterial>
+            double radius = 0.1
+            float2 ui:nodegraph:node:pos = (60, 60)
+            int ui:nodegraph:node:stackingOrder = 3
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.16082285, 0.16082285, 0.12)
+            float3 xformOp:translate = (0.032492436, 0.015089054, 0.03668303)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Sphere_7/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.63521224, 0.7302493, 0.85785776) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Sphere "Sphere_8" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (2.662803e-7, -0.834531, 0.38538274)
+            }
+        )
+        {
+            rel material:binding = </Root/Bear/Sphere_8/DefaultMaterial>
+            double radius = 0.1
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (0.8972809, 0.07760827, -0.39776164, 0.17507051)
+            float3 xformOp:scale = (0.12120903, 0.08517836, 0.21009564)
+            float3 xformOp:translate = (-0.029293127, 0.047586318, 0.0058183335)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Sphere_8/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.86193746, 0.80407906, 0.7846614) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Sphere "Sphere_10" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (0.3377502, 0, 0)
+            }
+        )
+        {
+            rel material:binding = </Root/Bear/Sphere_10/DefaultMaterial>
+            double radius = 0.1
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (0.98577446, 0.16807355, 0, 0)
+            float3 xformOp:scale = (0.15142818, 0.11668761, 0.11668761)
+            float3 xformOp:translate = (0.0010228232, 0.07697173, 0.018290019)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Sphere_10/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (1, 0.9277784, 0.9087174) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Sphere "Sphere_11" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (0, 0, -0.9459029)
+            }
+        )
+        {
+            rel material:binding = </Root/Bear/Sphere_11/DefaultMaterial>
+            double radius = 0.01
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (0.89022774, 0, 0, -0.45551574)
+            float3 xformOp:scale = (0.24859734, 0.24859734, 0.24859732)
+            float3 xformOp:translate = (-0.0048929825, 0.09095465, 0.021610174)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Sphere_11/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.1356226, 0.1231881, 0.12060967) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Sphere "Sphere_12" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (0, 0, -0.9459029)
+            }
+        )
+        {
+            rel material:binding = </Root/Bear/Sphere_12/DefaultMaterial>
+            double radius = 0.01
+            float2 ui:nodegraph:node:pos = (60, 60)
+            int ui:nodegraph:node:stackingOrder = 3
+            quatf xformOp:orient = (0.89022774, 0, 0, -0.45551574)
+            float3 xformOp:scale = (0.24859734, 0.24859734, 0.24859732)
+            float3 xformOp:translate = (0.008039445, 0.09095465, 0.021610174)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Sphere_12/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.1356226, 0.1231881, 0.12060967) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Cone "Cone" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (0.5776278, -4.7736158e-8, 3.1415927)
+            }
+        )
+        {
+            uniform token axis = "Y"
+            double height = 0.2
+            rel material:binding = </Root/Bear/Cone/DefaultMaterial>
+            double radius = 0.15
+            quatf xformOp:orient = (-4.1900964e-8, 1.2449677e-8, 0.28481546, 0.9585824)
+            float3 xformOp:scale = (0.028392786, 0.028392782, 0.028392784)
+            float3 xformOp:translate = (0.0019345582, 0.0809371, 0.028525695)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Cone/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.21511537, 0.2078022, 0.20786959) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Capsule "Capsule" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (0, 0, -0.915445)
+            }
+        )
+        {
+            uniform token axis = "Y"
+            double height = 0.008
+            rel material:binding = </Root/Bear/Capsule/DefaultMaterial>
+            double radius = 0.0003
+            quatf xformOp:orient = (0.8970612, 0, 0, -0.4419062)
+            float3 xformOp:scale = (0.94642603, 0.94642603, 0.9464261)
+            float3 xformOp:translate = (-0.0074928254, 0.09434365, 0.020640276)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Capsule/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.2229582, 0.21564537, 0.21571273) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Capsule "Capsule_1" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (2.9950852, -0.111747794, -2.2179384)
+            }
+        )
+        {
+            uniform token axis = "Y"
+            double height = 0.008
+            rel material:binding = </Root/Bear/Capsule_1/DefaultMaterial>
+            double radius = 0.0003
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (-0.082421094, -0.44003707, 0.8932668, 0.040601913)
+            float3 xformOp:scale = (0.946426, 0.946426, 0.9464261)
+            float3 xformOp:translate = (0.009722695, 0.09434365, 0.02064027)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Capsule_1/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.2229582, 0.21564537, 0.21571273) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Sphere "Sphere_13" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (0.3377502, 0, 0)
+            }
+        )
+        {
+            rel material:binding = </Root/Bear/Sphere_13/DefaultMaterial>
+            double radius = 0.06
+            float2 ui:nodegraph:node:pos = (60, 60)
+            int ui:nodegraph:node:stackingOrder = 3
+            quatf xformOp:orient = (0.98577446, 0.16807355, 0, 0)
+            float3 xformOp:scale = (0.15142818, 0.11668761, 0.11668761)
+            float3 xformOp:translate = (0.0010228232, 0.01168776, -0.018075254)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Sphere_13/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (1, 0.9277784, 0.9087174) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Sphere "Sphere_9" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (0.607079, 0.8710476, 0.40276688)
+            }
+        )
+        {
+            rel material:binding = </Root/Bear/Sphere_9/DefaultMaterial>
+            double radius = 0.1
+            float2 ui:nodegraph:node:pos = (60, 60)
+            int ui:nodegraph:node:stackingOrder = 3
+            quatf xformOp:orient = (0.8729397, 0.18499081, 0.44866872, 0.04950886)
+            float3 xformOp:scale = (0.12120901, 0.08517835, 0.21009563)
+            float3 xformOp:translate = (0.030070454, 0.047586318, 0.005818326)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Sphere_9/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.86193746, 0.80407906, 0.7846614) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+
+        def Capsule "Capsule_3" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+            customData = {
+                float3 rotationEulerHint = (3.1306534, -0.13967906, -3.1474423)
+            }
+        )
+        {
+            uniform token axis = "Y"
+            double height = 0.005
+            rel material:binding = </Root/Bear/Capsule_3/DefaultMaterial>
+            double radius = 0.0003
+            float2 ui:nodegraph:node:pos = (60, 60)
+            int ui:nodegraph:node:stackingOrder = 3
+            quatf xformOp:orient = (-0.069765456, 0.0032994086, 0.9975419, 0.00566031)
+            float3 xformOp:scale = (0.9464255, 0.9464256, 0.94642574)
+            float3 xformOp:translate = (0.001887697, 0.076313436, 0.029734757)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+                token outputs:surface.connect = </Root/Bear/Capsule_3/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (0.2229582, 0.21564537, 0.21571273) (
+                        colorSpace = "srgb_displayp3"
+                    )
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+        }
+    }
+}
+
