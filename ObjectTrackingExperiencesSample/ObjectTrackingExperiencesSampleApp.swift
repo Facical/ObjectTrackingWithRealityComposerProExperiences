@@ -1,8 +1,6 @@
 /*
-See the LICENSE.txt file for this sample’s licensing information.
-
-Abstract:
-Initializes the app, manages the main content and immersive AR spaces, and maintains the app state using an app model.
+ESS XR Visualization App
+Initializes the app, manages the main content and immersive AR spaces for ESS monitoring.
 */
 import SwiftUI
 
@@ -18,7 +16,7 @@ struct ObjectTrackingExperiencesSampleApp: App {
         }
 
         ImmersiveSpace(id: appModel.immersiveSpaceID) {
-            ImmersiveView()
+            ESSImmersiveView()
                 .environment(appModel)
                 .onAppear {
                     appModel.immersiveSpaceState = .open

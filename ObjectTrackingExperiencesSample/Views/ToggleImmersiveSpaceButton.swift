@@ -38,7 +38,7 @@ struct ToggleImmersiveSpaceButton: View {
                 }
             }
         } label: {
-            Text(appModel.immersiveSpaceState == .open ? "End Experience" : "Start Magic Keyboard Experience")
+            Text(appModel.immersiveSpaceState == .open ? "End Experience" : "Start ESS Monitoring")
         }
         .disabled(appModel.immersiveSpaceState == .inTransition)
         .animation(.none, value: 0)

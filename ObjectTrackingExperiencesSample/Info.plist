@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSWorldSensingUsageDescription</key>
-	<string>For detecting Apple Magic keyboards in your environment.</string>
+	<string>For detecting battery racks in your environment for ESS monitoring.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationPreferredDefaultSceneSessionRole</key>
